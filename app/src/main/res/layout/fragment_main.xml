@@ -16,7 +16,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-        <EditText
+        <TextView
             android:id="@+id/txtTemperatura"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
@@ -26,9 +26,9 @@
             android:editable="false"
             android:focusable="false"
             android:fontFamily="sans-serif-condensed"
-            />
+            android:textColor="#000000" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtGrau"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
@@ -37,7 +37,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:editable="false"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:textColor="#000000" />
 
     </RelativeLayout>
 </FrameLayout>

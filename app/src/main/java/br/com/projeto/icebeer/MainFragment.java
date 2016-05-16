@@ -15,9 +15,12 @@
  */
 package br.com.projeto.icebeer;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,6 +51,16 @@ public class MainFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Add this line in order for this fragment to handle menu events.
+        /*
+        TextView tx = (TextView) getActivity().findViewById(R.id.txtTemperatura);
+        tx.setText("000");
+        tx.setAllCaps(true);
+        tx.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 45);
+        tx.setShadowLayer(8, 15, 15, Color.GRAY);
+        */
+        //Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/digital-7.ttf");
+        //tx.setTypeface(tf);
+
         setHasOptionsMenu(true);
     }
 
@@ -92,6 +105,14 @@ public class MainFragment extends Fragment {
         }
         TextView tx = (TextView) getActivity().findViewById(R.id.txtTemperatura);
         tx.setText(String.valueOf(temperatura));
+        //tx.setText("000");
+        tx.setAllCaps(true);
+        tx.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 45);
+        tx.setShadowLayer(5, 5, 5, Color.GRAY);
+        tx.setTextSize(80);
+
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/digital-7.ttf");
+        tx.setTypeface(tf);
     }
 
     @Override
