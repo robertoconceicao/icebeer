@@ -4,5 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/action_refresh"
         android:title="@string/action_refresh"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_test"
+        android:title="@string/teste_conexao"
+        app:showAsAction="never"/>
 </menu>

@@ -17,6 +17,18 @@
         android:paddingRight="16dp">
 
         <TextView
+            android:id="@+id/shadowTemperatura"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="right"
+            android:textSize="80dp"
+            android:editable="false"
+            android:focusable="false"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#CDCDCD" />
+
+        <TextView
             android:id="@+id/txtTemperatura"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
@@ -26,7 +38,7 @@
             android:editable="false"
             android:focusable="false"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="#000000" />
+            android:textColor="#24bbed" />
 
         <TextView
             android:id="@+id/txtGrau"
@@ -38,7 +50,7 @@
             android:layout_alignParentEnd="true"
             android:editable="false"
             android:focusable="false"
-            android:textColor="#000000" />
+            android:textColor="#24bbed" />
 
     </RelativeLayout>
 </FrameLayout>

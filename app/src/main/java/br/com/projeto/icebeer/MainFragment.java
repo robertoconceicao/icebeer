@@ -15,12 +15,10 @@
  */
 package br.com.projeto.icebeer;
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -83,6 +81,12 @@ public class MainFragment extends Fragment {
             }
             return true;
         }
+
+        if (id == R.id.action_test) {
+            TestConexaoFragment tcf = new TestConexaoFragment();
+            getFragmentManager().beginTransaction().add(R.id.container, tcf).commit();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -103,16 +107,21 @@ public class MainFragment extends Fragment {
         if(--temperatura < -5){
             temperatura = 5.0;
         }
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/digital-7.ttf");
+
         TextView tx = (TextView) getActivity().findViewById(R.id.txtTemperatura);
         tx.setText(String.valueOf(temperatura));
-        //tx.setText("000");
-        tx.setAllCaps(true);
-        tx.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 45);
-        tx.setShadowLayer(5, 5, 5, Color.GRAY);
+        //tx.setAllCaps(true);
+        //tx.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 45);
+        //tx.setShadowLayer(5, 5, 5, Color.GRAY);
         tx.setTextSize(80);
-
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/digital-7.ttf");
         tx.setTypeface(tf);
+
+        TextView sw = (TextView) getActivity().findViewById(R.id.shadowTemperatura);
+        sw.setText("88.8");
+        sw.setTextSize(80);
+
+        sw.setTypeface(tf);
     }
 
     @Override

@@ -13,4 +13,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_url">http://soft031-117:8080/saff/</string>
+    <string name="bt_testar">Testar Conexão</string>
+    <string name="teste_conexao">Teste Conexão</string>
 </resources>
