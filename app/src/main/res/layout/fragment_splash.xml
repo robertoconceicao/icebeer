@@ -6,16 +6,29 @@
     android:background="@drawable/degrade_radial"
     tools:context=".MainActivity$FragmentSplash">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center_vertical|center_horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_apresentacao"
+            />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
-            android:layout_gravity="center" />
-    </LinearLayout>
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+            android:padding="30dp"
+            android:clickable="false"
+            />
+    </RelativeLayout>
 </FrameLayout>

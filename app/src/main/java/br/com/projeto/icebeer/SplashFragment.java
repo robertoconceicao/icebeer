@@ -16,7 +16,7 @@ public class SplashFragment extends Fragment implements Runnable {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Handler handler = new Handler();
-        handler.postDelayed(this, 3000);
+        handler.postDelayed(this, 5000);
     }
 
     @Override

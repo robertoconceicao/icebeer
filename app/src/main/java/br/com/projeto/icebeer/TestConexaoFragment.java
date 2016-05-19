@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -74,7 +72,7 @@ public class TestConexaoFragment extends Fragment {
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            // Read the input stream into a String
+            /* Read the input stream into a String
             InputStream inputStream = urlConnection.getInputStream();
             StringBuffer buffer = new StringBuffer();
             reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -83,12 +81,13 @@ public class TestConexaoFragment extends Fragment {
             while ((line = reader.readLine()) != null) {
                 buffer.append(line + "\n");
             }
-
-            msg = buffer.toString();
+            */
+            //msg = buffer.toString();
+            msg = "Sucesso :-)";
         } catch (IOException e){
             Log.e(LOG_TAG, "erro ao tentar conectar");
         } catch (NetworkOnMainThreadException n){
-            Log.e(LOG_TAG, "Erro ao tentar se conectar");
+            Log.e(LOG_TAG, "Erro ao tentar se conectar ",n);
             msg = "Erro ao tentar se conectar";
         }
 
