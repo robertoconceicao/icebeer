@@ -19,12 +19,15 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,10 +39,18 @@ import java.util.TimerTask;
  */
 public class MainFragment extends Fragment {
 
+    public static final int BT3 = -3;
+    public static final int BT4 = -4;
+    public static final int BT5 = -5;
+
     Double temperatura;
     Timer timer;
     TimerTask timerTask;
     final Handler handler = new Handler();
+
+    // inicia com o botao default
+    int btSelecionado = BT3;
+    boolean statusPower = false;
 
     public MainFragment() {
         temperatura = 5.00;
@@ -84,7 +95,11 @@ public class MainFragment extends Fragment {
 
         if (id == R.id.action_test) {
             TestConexaoFragment tcf = new TestConexaoFragment();
-            getFragmentManager().beginTransaction().add(R.id.container, tcf).commit();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, tcf);
+            transaction.addToBackStack(null);
+
+            transaction.commit();
         }
 
         return super.onOptionsItemSelected(item);
@@ -93,10 +108,76 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        // TODO cria a tela
-        return rootView;
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        // evento botao3
+        Button botao = (Button) view.findViewById(R.id.bt3);
+        botao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                botaoSelecionado(BT3);
+            }
+        });
+
+        // evento botao4
+        botao = (Button) view.findViewById(R.id.bt4);
+        botao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                botaoSelecionado(BT4);
+            }
+        });
+
+        // evento botao5
+        botao = (Button) view.findViewById(R.id.bt5);
+        botao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                botaoSelecionado(BT5);
+            }
+        });
+
+        ImageView imgLigar = (ImageView) view.findViewById(R.id.imgLigar);
+        imgLigar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                statusPower = !statusPower;
+                ImageView _imgLigar = (ImageView) v.findViewById(R.id.imgLigar);
+                if(statusPower) {
+                    _imgLigar.setImageResource(R.drawable.ic_ligado_150px);
+                    startTimer();
+                } else {
+                    _imgLigar.setImageResource(R.drawable.ic_desligado_150px);
+                    stoptimertask();
+                }
+            }
+        });
+
+        return view;
     }
+
+    public void botaoSelecionado(int _btSelecionado){
+        Button bt3 = (Button) getActivity().findViewById(R.id.bt3);
+        Button bt4 = (Button) getActivity().findViewById(R.id.bt4);
+        Button bt5 = (Button) getActivity().findViewById(R.id.bt5);
+
+        bt3.setSelected(false);
+        bt4.setSelected(false);
+        bt5.setSelected(false);
+
+        btSelecionado = _btSelecionado;
+        switch (_btSelecionado){
+            case BT3:
+                bt3.setSelected(true);
+                break;
+            case BT4:
+                bt4.setSelected(true);
+                break;
+            case BT5:
+                bt5.setSelected(true);
+                break;
+            default:
+                bt3.setSelected(true);
+                btSelecionado = BT3;
+        }
+    }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -111,9 +192,6 @@ public class MainFragment extends Fragment {
 
         TextView tx = (TextView) getActivity().findViewById(R.id.txtTemperatura);
         tx.setText(String.valueOf(temperatura));
-        //tx.setAllCaps(true);
-        //tx.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 45);
-        //tx.setShadowLayer(5, 5, 5, Color.GRAY);
         tx.setTextSize(80);
         tx.setTypeface(tf);
 
@@ -128,6 +206,7 @@ public class MainFragment extends Fragment {
     public void onStart() {
         super.onStart();
         updateTemperatura();
+        botaoSelecionado(BT3);
     }
 
     public void startTimer() {

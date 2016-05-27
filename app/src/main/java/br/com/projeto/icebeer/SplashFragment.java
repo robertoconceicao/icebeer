@@ -1,5 +1,6 @@
 package br.com.projeto.icebeer;
 
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,11 @@ public class SplashFragment extends Fragment implements Runnable {
     @Override
     public void run() {
         MainFragment mainFragment = new MainFragment();
-        getFragmentManager().beginTransaction().add(R.id.container, mainFragment).commit();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, mainFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+        //getFragmentManager().beginTransaction().add(R.id.container, mainFragment).commit();
     }
 }

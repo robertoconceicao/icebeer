@@ -16,6 +16,19 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
+<!--
+        <TextView
+            android:id="@+id/bgDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="right"
+            android:textSize="80dp"
+            android:editable="false"
+            android:focusable="false"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/gradiente_background_display"/>
+-->
         <TextView
             android:id="@+id/shadowTemperatura"
             android:layout_width="220dp"
@@ -25,8 +38,9 @@
             android:textSize="80dp"
             android:editable="false"
             android:focusable="false"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="#CDCDCD" />
+            android:textColor="#dfe1e2"
+            android:text="000"
+            android:fontFamily="sans-serif-condensed"/>
 
         <TextView
             android:id="@+id/txtTemperatura"
@@ -36,9 +50,11 @@
             android:gravity="right"
             android:textSize="80dp"
             android:editable="false"
+            android:text="-02"
+            android:textColor="#0074ab"
             android:focusable="false"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="#24bbed" />
+            />
 
         <TextView
             android:id="@+id/txtGrau"
@@ -50,7 +66,59 @@
             android:layout_alignParentEnd="true"
             android:editable="false"
             android:focusable="false"
-            android:textColor="#24bbed" />
+            android:textColor="#0074ab"
+            />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 4"
+            android:textSize="20dp"
+            android:textColor="@color/text_bt_config"
+            android:id="@+id/bt4"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 3"
+            android:textSize="20dp"
+            android:textColor="@color/text_bt_config"
+            android:id="@+id/bt3"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 5"
+            android:textSize="20dp"
+            android:id="@+id/bt5"
+            android:textColor="@color/text_bt_config"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/config_temperatura"
+            android:id="@+id/textView"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textColor="#0074ab"
+            android:layout_above="@+id/bt4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgLigar"
+            android:src="@drawable/ic_desligado_150px"
+            android:layout_centerInParent="true"
+            />
     </RelativeLayout>
 </FrameLayout>

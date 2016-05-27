@@ -17,4 +17,5 @@
     <!--<string name="default_url">http://www.google.com.br</string> -->
     <string name="bt_testar">Testar Conexão</string>
     <string name="teste_conexao">Teste Conexão</string>
+    <string name="config_temperatura">Temperatura configurada</string>
 </resources>
